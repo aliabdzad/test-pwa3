@@ -6,6 +6,7 @@ import {
   User,
   Heart,
   Home as HomeIcon,
+  Camera,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -186,10 +187,13 @@ function Home() {
               مستخدم جديد
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Search className="w-5 h-5 text-gray-600" />
-            <span className="text-gray-800 font-medium">جستجوی گیاه کنید</span>
-          </div>
+          <button
+            onClick={() => navigate("/image-search")}
+            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-lg transition-colors"
+          >
+            <Camera className="w-5 h-5 text-gray-600" />
+            <span className="text-gray-800 font-medium">البحث بالصورة</span>
+          </button>
         </div>
       </header>
 

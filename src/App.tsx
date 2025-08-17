@@ -4,6 +4,7 @@ import Home from "./components/home";
 import PlantDetail from "./pages/PlantDetail";
 import CategoriesPage from "./pages/CategoriesPage";
 import CategoryItemPage from "./pages/CategoryItemPage";
+import ImageSearchPage from "./pages/ImageSearchPage";
 import routes from "tempo-routes";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/plant/:id" element={<PlantDetail />} />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryItemPage />} />
+          <Route path="/image-search" element={<ImageSearchPage />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
       </>
