@@ -169,3 +169,21 @@ export const fetchProductById = async (id: string): Promise<Product | null> => {
 
   return mockProducts.find((product) => product.id === id) || null;
 };
+
+export const fetchSimilarProducts = async (
+  productId: string,
+): Promise<Product[]> => {
+  // Simulate API delay
+  await new Promise((resolve) => setTimeout(resolve, 400));
+
+  // Replace this with actual API call:
+  // const response = await fetch(`/api/products/${productId}/similar`);
+  // return response.json();
+
+  // Mock similar products - exclude the current product
+  const similarProducts = mockProducts
+    .filter((product) => product.id !== productId)
+    .slice(0, 6); // Return up to 6 similar products
+
+  return similarProducts;
+};

@@ -91,7 +91,7 @@ const PlantDetail: React.FC<PlantDetailProps> = () => {
         </div>
       </header>
 
-      <main className="container mx-auto pb-20">
+      <main className="container mx-auto pb-32">
         {/* Plant Info Component */}
         <PlantInfo
           nameArabic={plantData.nameArabic}
@@ -115,13 +115,15 @@ const PlantDetail: React.FC<PlantDetailProps> = () => {
 
         {/* Related Plants Component */}
         <div className="mt-8">
-          <h2 className="text-xl font-bold mb-4">نباتات ذات صلة</h2>
-          <RelatedPlants plants={plantData.relatedPlants} />
+          <RelatedPlants
+            currentProductId={plantId}
+            onPlantClick={(newPlantId) => navigate(`/plant/${newPlantId}`)}
+          />
         </div>
       </main>
 
       {/* Fixed Purchase Button */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background border-t">
+      <div className="fixed bottom-16 left-0 right-0 p-4 bg-background border-t">
         <button className="w-full bg-primary text-primary-foreground rounded-full py-3 flex items-center justify-center gap-2">
           <span className="rounded-full bg-white/20 p-1">
             <svg

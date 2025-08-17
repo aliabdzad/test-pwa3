@@ -88,7 +88,7 @@ function ImageSearchPage() {
       });
 
       if (!searchResponse.ok) {
-        throw new Error("فشل في البحث عن الصورة");
+        throw new Error("جستجوی تصویر ناموفق بود");
       }
 
       const results = await searchResponse.json();
@@ -129,7 +129,9 @@ function ImageSearchPage() {
 
       setSearchResults(mockResults);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "حدث خطأ أثناء البحث");
+      setError(
+        err instanceof Error ? err.message : "خطایی در حین جستجو رخ داد",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -161,7 +163,7 @@ function ImageSearchPage() {
       );
 
       if (!searchResponse.ok) {
-        throw new Error("فشل في البحث النصي");
+        throw new Error("جستجوی متنی ناموفق بود");
       }
 
       const results = await searchResponse.json();
@@ -193,7 +195,7 @@ function ImageSearchPage() {
       setSearchResults(mockResults);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "حدث خطأ أثناء البحث النصي",
+        err instanceof Error ? err.message : "خطایی در حین جستجوی متنی رخ داد",
       );
     } finally {
       setIsSearchingText(false);
@@ -212,9 +214,9 @@ function ImageSearchPage() {
             className="flex items-center gap-2"
           >
             <ArrowRight className="w-4 h-4" />
-            <span>رجوع</span>
+            <span>بازگشت</span>
           </Button>
-          <h1 className="text-lg font-semibold">البحث بالصورة</h1>
+          <h1 className="text-lg font-semibold">جستجو با تصویر</h1>
           <div className="w-16" /> {/* Spacer */}
         </div>
       </header>
@@ -225,7 +227,7 @@ function ImageSearchPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-center flex-1">
-                اختر صورة للبحث عن النبات
+                تصویری برای جستجوی گیاه انتخاب کنید
               </h2>
               <Sheet>
                 <SheetTrigger asChild>
@@ -240,90 +242,45 @@ function ImageSearchPage() {
                     </SheetTitle>
                   </SheetHeader>
                   <div className="mt-6 space-y-4">
-                    <div className="grid grid-cols-5 gap-2 mb-6">
+                    <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="text-center">
-                        <div className="relative mb-2">
+                        <div className="relative mb-3">
                           <img
-                            src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&q=80"
-                            alt="خیلی نزدیک"
-                            className="w-full h-20 object-cover rounded-lg"
+                            src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&q=80"
+                            alt="تصویر نامناسب - خیلی نزدیک یا تاری"
+                            className="w-full h-32 object-cover rounded-lg"
                           />
-                          <div className="absolute inset-0 bg-red-500/20 rounded-lg flex items-center justify-center">
-                            <X className="w-6 h-6 text-red-500" />
+                          <div className="absolute inset-0 bg-red-500/30 rounded-lg flex items-center justify-center">
+                            <X className="w-8 h-8 text-red-500" />
                           </div>
                         </div>
-                        <p className="text-xs text-red-600">خیلی نزدیک</p>
+                        <p className="text-sm text-red-600 font-medium">
+                          تصویر نامناسب
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          خیلی نزدیک، تاری یا نامشخص
+                        </p>
                       </div>
                       <div className="text-center">
-                        <div className="relative mb-2">
+                        <div className="relative mb-3">
                           <img
-                            src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&q=80"
-                            alt="خیلی نزدیک"
-                            className="w-full h-20 object-cover rounded-lg"
-                          />
-                          <div className="absolute inset-0 bg-red-500/20 rounded-lg flex items-center justify-center">
-                            <X className="w-6 h-6 text-red-500" />
-                          </div>
-                        </div>
-                        <p className="text-xs text-red-600">خیلی نزدیک</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="relative mb-2">
-                          <img
-                            src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&q=80"
-                            alt="خیلی نزدیک"
-                            className="w-full h-20 object-cover rounded-lg"
-                          />
-                          <div className="absolute inset-0 bg-red-500/20 rounded-lg flex items-center justify-center">
-                            <X className="w-6 h-6 text-red-500" />
-                          </div>
-                        </div>
-                        <p className="text-xs text-red-600">خیلی نزدیک</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="relative mb-2">
-                          <img
-                            src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=200&q=80"
-                            alt="نا واضح یا کیفیت"
-                            className="w-full h-20 object-cover rounded-lg"
-                          />
-                          <div className="absolute inset-0 bg-red-500/20 rounded-lg flex items-center justify-center">
-                            <X className="w-6 h-6 text-red-500" />
-                          </div>
-                        </div>
-                        <p className="text-xs text-red-600">نا واضح یا کیفیت</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="relative mb-2">
-                          <img
-                            src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&q=80"
-                            alt="واضح و با فاصله مناسب و کیفیت قابل مشاهده"
-                            className="w-full h-20 object-cover rounded-lg"
+                            src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&q=80"
+                            alt="تصویر مناسب - واضح و با فاصله مناسب"
+                            className="w-full h-32 object-cover rounded-lg"
                           />
                           <div className="absolute inset-0 bg-green-500/20 rounded-lg flex items-center justify-center">
-                            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                              <div className="w-2 h-2 bg-white rounded-full"></div>
+                            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                              <div className="w-3 h-3 bg-white rounded-full"></div>
                             </div>
                           </div>
                         </div>
-                        <p className="text-xs text-green-600">
-                          واضح و با فاصله مناسب و کیفیت قابل مشاهده
+                        <p className="text-sm text-green-600 font-medium">
+                          تصویر مناسب
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          واضح، با فاصله مناسب و کیفیت خوب
                         </p>
                       </div>
-                    </div>
-                    <div className="space-y-3">
-                      <Button
-                        className="w-full bg-rose-600 hover:bg-rose-700 text-white rounded-full py-3"
-                        onClick={() => {}}
-                      >
-                        انتخاب از گالری
-                      </Button>
-                      <Button
-                        className="w-full bg-rose-600 hover:bg-rose-700 text-white rounded-full py-3"
-                        onClick={() => {}}
-                      >
-                        گرفتن عکس
-                      </Button>
                     </div>
                   </div>
                 </SheetContent>
@@ -338,7 +295,7 @@ function ImageSearchPage() {
                     className="flex flex-col items-center gap-2 h-24 bg-rose-600 hover:bg-rose-700"
                   >
                     <Camera className="w-6 h-6" />
-                    <span>التقاط صورة</span>
+                    <span>گرفتن عکس</span>
                   </Button>
 
                   <Button
@@ -347,7 +304,7 @@ function ImageSearchPage() {
                     className="flex flex-col items-center gap-2 h-24"
                   >
                     <Upload className="w-6 h-6" />
-                    <span>من المعرض</span>
+                    <span>از گالری</span>
                   </Button>
                 </div>
 
@@ -385,10 +342,10 @@ function ImageSearchPage() {
                   {isLoading ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      جاري البحث...
+                      در حال جستجو...
                     </>
                   ) : (
-                    "البحث عن النبات"
+                    "جستجوی گیاه"
                   )}
                 </Button>
               </div>
@@ -399,12 +356,12 @@ function ImageSearchPage() {
         {/* Text Search Section */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold mb-4 text-center">البحث بالنص</h2>
+            <h2 className="text-xl font-bold mb-4 text-center">جستجو با متن</h2>
             <div className="space-y-4">
               <div className="flex gap-2">
                 <Input
                   type="text"
-                  placeholder="اكتب اسم النبات أو وصفه..."
+                  placeholder="نام گیاه یا توضیحات آن را بنویسید..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="flex-1 text-right"
@@ -438,7 +395,7 @@ function ImageSearchPage() {
         {/* Search Results */}
         {searchResults.length > 0 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">نتائج البحث</h3>
+            <h3 className="text-lg font-bold">نتایج جستجو</h3>
 
             <div className="space-y-3">
               {searchResults.map((result) => (
@@ -470,7 +427,7 @@ function ImageSearchPage() {
                               {result.price} {result.currency}
                             </p>
                             <p className="text-xs text-green-600">
-                              {Math.round(result.similarity * 100)}% تطابق
+                              {Math.round(result.similarity * 100)}% تطبیق
                             </p>
                           </div>
                         </div>

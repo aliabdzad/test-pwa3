@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           onClick={() => navigate("/profile")}
         >
           <User className="w-5 h-5" />
-          <span className="text-xs">پروفایل من</span>
+          <span className="text-xs">پروفایل</span>
         </button>
         <button
           className={`flex flex-col items-center gap-1 ${
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           onClick={() => navigate("/favorites")}
         >
           <Heart className="w-5 h-5" />
-          <span className="text-xs">علاقه مندی</span>
+          <span className="text-xs">علاقه‌مندی</span>
         </button>
         <button
           className={`flex flex-col items-center gap-1 ${
