@@ -306,24 +306,6 @@ function Home() {
           </div>
         </section>
       </main>
-
-      {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
-        <div className="flex justify-around items-center py-3">
-          <button className="flex flex-col items-center gap-1 text-gray-400">
-            <User className="w-5 h-5" />
-            <span className="text-xs">پروفایل من</span>
-          </button>
-          <button className="flex flex-col items-center gap-1 text-gray-400">
-            <Heart className="w-5 h-5" />
-            <span className="text-xs">علاقه مندی</span>
-          </button>
-          <button className="flex flex-col items-center gap-1 text-rose-600">
-            <HomeIcon className="w-5 h-5" />
-            <span className="text-xs">خانه</span>
-          </button>
-        </div>
-      </nav>
     </div>
   );
 }

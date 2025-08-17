@@ -5,6 +5,7 @@ import PlantDetail from "./pages/PlantDetail";
 import CategoriesPage from "./pages/CategoriesPage";
 import CategoryItemPage from "./pages/CategoryItemPage";
 import ImageSearchPage from "./pages/ImageSearchPage";
+import Navbar from "./components/Navbar";
 import routes from "tempo-routes";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/image-search" element={<ImageSearchPage />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
+        <Navbar />
       </>
     </Suspense>
   );
