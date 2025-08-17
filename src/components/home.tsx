@@ -185,10 +185,10 @@ function Home() {
           <div className="flex items-center gap-3"></div>
           <button
             onClick={() => navigate("/image-search")}
-            className="flex items-center gap-2 hover:bg-red-50 p-2 rounded-lg transition-colors"
+            className="flex bg-rose-600  hover:bg-rose-700 text-white px-4 py-2 rounded-full text-sm font-medium items-center gap-2 p-2 rounded-lg transition-colors"
           >
-            <Camera className="w-5 h-5 text-red-600" />
-            <span className="text-red-600 font-medium">جستجو با تصویر</span>
+            <Camera className="w-5 h-5" />
+            <span className=" font-medium">جستجو با تصویر</span>
           </button>
         </div>
       </header>
