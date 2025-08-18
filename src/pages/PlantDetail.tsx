@@ -123,7 +123,7 @@ const PlantDetail: React.FC<PlantDetailProps> = () => {
       </main>
 
       {/* Fixed Purchase Button */}
-      <div className="fixed bottom-16 left-0 right-0 p-4 bg-background border-t">
+      <div className="fixed bottom-16 left-0 right-0 p-4 bg-background border-t z-[999]">
         <button className="w-full bg-primary text-primary-foreground rounded-full py-3 flex items-center justify-center gap-2">
           <span className="rounded-full bg-white/20 p-1">
             <svg
